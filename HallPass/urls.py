@@ -30,4 +30,5 @@ urlpatterns = [
     path('celeb/<int:id>/update', views.update),
     path('testing', views.test),
     path('testing/process', views.searchprocess),
+    path('friends', views.friends)
 ]
