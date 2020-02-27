@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Add a new celebrity to your HallPass!</title>
+</head>
+<body>
+    <div class="container">
+    <a href="/logout" style="position: absolute; top: 10px; right: 10px;">Log Out</a>
+    <h1>Hello {{user.first_name}}!</h1>
+    <h4>Lets add your celebrity's information to your HallPass!</h4>
+    
+
+    {% if messages %}
+	<ul class="messages">    
+	    {% for message in messages %}    
+	        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+	    {% endfor %}
+	</ul>
+    {% endif %}
+    
+    <form action="/processnewceleb" method="post">
+        {% csrf_token %}
+        <label for="ranking">Ranking:</label>
+        <input class="form-control" type="number" min="1" max="5" name="ranking">
+        <br>
+        <label for="photo">Photo</label>
+        <input class="form-control" type="url" name="photo">
+        <br>
+        <label for="name">Name:</label>
+        <input class="form-control" type="text" name="name">
+        <br>
+        <p>Comments:<textarea class="form-control" name="comments" id="comments" cols="30" rows="10"></textarea></p>
+        <input class="btn btn-primary" type="submit" name="Submit">  
+    </form>
+    <br>
+    <a href="/myhallpass" ><button class="btn btn-primary">Cancel</button></a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+</html>
