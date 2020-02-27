@@ -7,6 +7,9 @@ from serpapi.google_search_results import GoogleSearchResults
 def index(request):
     return render(request, "login.html")
 
+def registerpage(request):
+    return render(request, "registerpage.html")
+
 def register(request):
 	errors = User.objects.registration_validator(request.POST)
 	if len(errors) > 0:

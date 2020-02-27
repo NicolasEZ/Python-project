@@ -21,6 +21,7 @@ urlpatterns = [
     path('register', views.register),
     path('myhallpass', views.myhallpass),
     path('login', views.login),
+    path('registerpage', views.registerpage),
     path('logout', views.logout),
     path('celebs/new', views.newceleb),
     path('processnewceleb', views.processnewceleb),
