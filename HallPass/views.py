@@ -26,7 +26,7 @@ def register(request):
 		password = pw_hash
 	)
 	request.session['userid'] = new_user.id
-	return redirect("/myhallpass")
+	return redirect("/celebs/new")
 
 def myhallpass(request):
     if "userid" not in request.session:
@@ -119,4 +119,7 @@ def addtolist(request, id):
     celebtoadd = Celeb.objects.get(id=id)
     currentuser=request.session['userid']
     celebtoadd.users.add(currentuser)
+    return redirect('/myhallpass')
+
+def friends(reqeust):
     return redirect('/myhallpass')
