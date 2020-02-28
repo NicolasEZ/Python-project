@@ -40,7 +40,7 @@
     <h1 class="display-4">Hello {{user.first_name}}!</h1>
     <h2>Your top picks:</h2>
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover table-dark">
         <thead>
             <tr>
                 <th>Ranking</th>
@@ -59,8 +59,8 @@
                 <td>{{celeb.name}}</td>
                 <td>{{celeb.comments}}</td>
                 <td>
-                  <a href="/celeb/edit/{{celeb.id}}">Edit</a>
-                  <a href="/celeb/removefromlist/{{celeb.id}}">Remove</a>
+                  <a href="/celeb/edit/{{celeb.id}}" class="btn btn-warning">Edit</a>
+                  <a href="/celeb/removefromlist/{{celeb.id}}" class="btn btn-warning">×</a>
                   
                 </td>
             </tr>
@@ -68,7 +68,7 @@
         </tbody>
     </table>
 <br><br><br>
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover table-dark">
       <thead>
           <tr>
               <th>Ranking</th>
@@ -86,8 +86,8 @@
               <td><img src="{{celeb.photo}}" alt=""></td>
               <td>{{celeb.name}}</td>
               <td>{{celeb.comments}}</td>
-              <td><a href="/celeb/add/{{celeb.id}}">Add to my HallPass</a>
-                  <a href="/celeb/edit/{{celeb.id}}">Edit</a>
+              <td><a href="/celeb/add/{{celeb.id}}"class="btn btn-warning">★</a>
+                  <a href="/celeb/edit/{{celeb.id}}"class="btn btn-warning">Edit</a>
               </td>
           </tr>
       {% endfor %}

@@ -28,6 +28,15 @@ def register(request):
 	request.session['userid'] = new_user.id
 	return redirect("/celebs/new")
 
+def friends(request):
+    if "userid" not in request.session:
+        return redirect("/")
+    context = {
+        "user": User.objects.filter(id=request.session['userid'])[0]
+    }
+
+    return render(request, "friends.html", context)
+
 def myhallpass(request):
     if "userid" not in request.session:
         return redirect("/")
