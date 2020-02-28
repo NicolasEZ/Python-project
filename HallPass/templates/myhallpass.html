@@ -55,12 +55,12 @@
         {% for celeb in celebs %}
             <tr>
                 <td>{{celeb.ranking}}</a></td>
-                <td><img src="{{celeb.photo}}" alt=""></td>
+                <td><img style="height: 200px;" src="{{celeb.photo}}" alt=""></td>
                 <td>{{celeb.name}}</td>
                 <td>{{celeb.comments}}</td>
                 <td>
                   <a href="/celeb/edit/{{celeb.id}}" class="btn btn-warning">Edit</a>
-                  <a href="/celeb/removefromlist/{{celeb.id}}" class="btn btn-warning">×</a>
+                  <a href="/celeb/removefromlist/{{celeb.id}}" class="btn btn-warning">🗙</a>
                   
                 </td>
             </tr>
@@ -83,11 +83,12 @@
       {% for celeb in allcelebs %}
           <tr>
               <td>{{celeb.ranking}}</a></td>
-              <td><img src="{{celeb.photo}}" alt=""></td>
+              <td><img style="height: 200px;" src="{{celeb.photo}}" alt=""></td>
               <td>{{celeb.name}}</td>
               <td>{{celeb.comments}}</td>
-              <td><a href="/celeb/add/{{celeb.id}}"class="btn btn-warning">★</a>
-                  <a href="/celeb/edit/{{celeb.id}}"class="btn btn-warning">Edit</a>
+              <td>
+                <a href="/celeb/edit/{{celeb.id}}"class="btn btn-warning">Edit</a>
+                <a href="/celeb/add/{{celeb.id}}"class="btn btn-warning">★</a>
               </td>
           </tr>
       {% endfor %}

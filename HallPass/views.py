@@ -45,8 +45,8 @@ def myhallpass(request):
 
     context = {
         "user": User.objects.filter(id=request.session['userid'])[0],
-        "celebs": Celeb.objects.filter(users=request.session['userid']),
-        "allcelebs": Celeb.objects.all(),
+        "celebs": Celeb.objects.filter(users=request.session['userid']).order_by("ranking"),
+        "allcelebs": Celeb.objects.all().order_by("ranking"),
     }
     return render(request, "myhallpass.html", context)
 
