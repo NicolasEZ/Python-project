@@ -28,6 +28,6 @@ urlpatterns = [
     path('celeb/<int:id>/destroy', views.destroy),
     path('celeb/edit/<int:id>', views.edit),
     path('celeb/<int:id>/update', views.update),
-    path('testing', views.test),
-    path('testing/process', views.searchprocess),
+    path('celeb/removefromlist/<int:id>', views.removefromlist),
+    path('celeb/add/<int:id>', views.addtolist),
 ]
