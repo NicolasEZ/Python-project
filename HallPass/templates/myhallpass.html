@@ -7,7 +7,7 @@
 
     <title>My HallPass</title>
 </head>
-<body>
+<body style="background-color:black;">
 {% load static %}
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -36,9 +36,9 @@
           </div>
         </div>
       </nav>
-    <div class="container">
-    <h1 class="display-4">Hello {{user.first_name}}!</h1>
-    <h2>Your top picks:</h2>
+    <div class="container" style="background-color:rgb(42, 48, 55);">
+    <h1 style="color: lightgrey;" class="display-4">Hello {{user.first_name}}!</h1>
+    <h2 style="color: lightgrey;">Your top picks:</h2>
 
     <table class="table table-striped table-hover table-dark">
         <thead>
@@ -78,7 +78,7 @@
               <th>Actions</th>
           </tr>
       </thead>
-      <h2>More Celebrities</h2>
+      <h2 style="color: lightgrey;">More Celebrities</h2>
       <tbody>
       {% for celeb in allcelebs %}
           <tr>
