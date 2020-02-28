@@ -41,9 +41,12 @@ def myhallpass(request):
     if "userid" not in request.session:
         return redirect("/")
 
+    # yourcelebs=User.objects.get(id=request.session['userid']).celebs.all()
+
     context = {
         "user": User.objects.filter(id=request.session['userid'])[0],
-        "celebs": Celeb.objects.all()
+        "celebs": Celeb.objects.filter(users=request.session['userid']),
+        "allcelebs": Celeb.objects.all(),
     }
     return render(request, "myhallpass.html", context)
 
@@ -84,6 +87,8 @@ def processnewceleb(request):
         name=request.POST['name'],
         comments=request.POST['comments'],
     )
+    currentuser=request.session['userid']
+    celeb.users.add(currentuser)
     return redirect("/myhallpass")
 
 def destroy(request, id):
@@ -113,16 +118,14 @@ def update(request, id):
         celeb.save()
         return redirect("/myhallpass")
 
-def test(request):
-    return render(request, "testing.html")
+def removefromlist(request, id):
+    celebtoremove = Celeb.objects.get(id=id)
+    currentuser=request.session['userid']
+    celebtoremove.users.remove(currentuser)
+    return redirect('/myhallpass')
 
-def searchprocess(request):
-    client = GoogleSearchResults({"q": "coffe", "tbm": "isch"})
-    for image_result in client.get_json()['images_results']:
-        link = image_result["original"]
-        try:
-            print("link: " + link)
-            # wget.download(link, '.')
-        except:
-            pass
-
+def addtolist(request, id):
+    celebtoadd = Celeb.objects.get(id=id)
+    currentuser=request.session['userid']
+    celebtoadd.users.add(currentuser)
+    return redirect('/myhallpass')

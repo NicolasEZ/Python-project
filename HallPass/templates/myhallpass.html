@@ -38,7 +38,11 @@
       </nav>
     <div class="container">
     <h1 class="display-4">Hello {{user.first_name}}!</h1>
+<<<<<<< HEAD
     <h4>Your top picks:</h4>
+=======
+    <h2>Your top picks:</h2>
+>>>>>>> d3b9c7465f7ac3de4abf9878107e82e40bdbf8be
 
     <table class="table table-striped table-hover">
         <thead>
@@ -58,13 +62,44 @@
                 <td><img src="{{celeb.photo}}" alt=""></td>
                 <td>{{celeb.name}}</td>
                 <td>{{celeb.comments}}</td>
-                <td><a href="/celeb/{{celeb.id}}/destroy">Remove</a>
-                    <a href="/celeb/edit/{{celeb.id}}">Edit</a>
+                <td>
+                  <a href="/celeb/edit/{{celeb.id}}">Edit</a>
+                  <a href="/celeb/removefromlist/{{celeb.id}}">Remove</a>
+                  
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+<br><br><br>
+    <table class="table table-striped table-hover">
+      <thead>
+          <tr>
+              <th>Ranking</th>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Comments</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <h2>More Celebrities</h2>
+      <tbody>
+      {% for celeb in allcelebs %}
+          <tr>
+              <td>{{celeb.ranking}}</a></td>
+              <td><img src="{{celeb.photo}}" alt=""></td>
+              <td>{{celeb.name}}</td>
+              <td>{{celeb.comments}}</td>
+              <td><a href="/celeb/add/{{celeb.id}}">Add to my HallPass</a>
+                  <a href="/celeb/edit/{{celeb.id}}">Edit</a>
+              </td>
+          </tr>
+      {% endfor %}
+
+      
+      </tbody>
+  </table>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

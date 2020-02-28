@@ -28,7 +28,12 @@ urlpatterns = [
     path('celeb/<int:id>/destroy', views.destroy),
     path('celeb/edit/<int:id>', views.edit),
     path('celeb/<int:id>/update', views.update),
+<<<<<<< HEAD
     path('testing', views.test),
     path('testing/process', views.searchprocess),
     path('friends', views.friends)
+=======
+    path('celeb/removefromlist/<int:id>', views.removefromlist),
+    path('celeb/add/<int:id>', views.addtolist),
+>>>>>>> d3b9c7465f7ac3de4abf9878107e82e40bdbf8be
 ]

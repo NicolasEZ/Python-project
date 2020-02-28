@@ -54,6 +54,7 @@ class Celeb(models.Model):
 	photo = models.CharField(max_length=255)
 	name = models.CharField(max_length=255)
 	comments = models.TextField()
+	users = models.ManyToManyField(User, related_name="celebs")
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	objects = CelebManager()
